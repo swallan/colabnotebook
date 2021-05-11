@@ -48,9 +48,15 @@ mpmath_out_dict = dict()
 
 
 i = 1
-for (q, k, v) in combinations:
+for (q, k, v) in combinations[:1]:
     print(f"computation #{i}")
     i = i + 1
-    mpmath_out_dict[(q, k, v)] = cdf_mp(q, k, v)
+    mpmath_out_dict[str((q, k, v))] = str(cdf_mp(q, k, v))
     
 
+mp.dps = 25
+
+import json
+
+with open("mpmath_res_final.txt", "w+") as f:
+    f.write(json.dumps(mpmath_out_dict))
