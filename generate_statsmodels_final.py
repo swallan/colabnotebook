@@ -6,7 +6,6 @@ Created on Tue May 11 20:12:19 2021
 @author: swallan
 """
 
-import stats
 
 with open("all_combinations_final.txt", "r") as f:
     combinations_read = f.readlines()[0]
@@ -30,14 +29,18 @@ def statsmodels_cdf(q, k, v):
   return float(1 - psturng(q, k, v))
 
 i = 1
-for (q, k, v) in combinations[::-1]:
+for (q, k, v) in combinations:
     print(f"computation #{len(combinations) -i}")
+    if (len(statsmodels_out_dict)) != i-1:
+        print("bad")
     i = i + 1
+
     statsmodels_out_dict[str((q, k, v))] = str(statsmodels_cdf(q, k, v))
     
 
 
 import json
 
+# if len(statsmodels_out_dict) != 999: 
 with open("statsmodels_res_final.txt", "w+") as f:
     f.write(json.dumps(statsmodels_out_dict))
