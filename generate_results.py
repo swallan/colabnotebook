@@ -18,8 +18,7 @@ with open("sm_res.txt", "r") as f:
     
 with open("cython_res.txt", "r") as f:
     cython = json.loads(f.readlines()[0])
-    
-# gl = dict()
+
 
 
 gl_l = []
