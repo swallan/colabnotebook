@@ -48,8 +48,8 @@ mpmath_out_dict = dict()
 
 
 i = 1
-for (q, k, v) in combinations[:1]:
-    print(f"computation #{i}")
+for (q, k, v) in combinations[::-1]:
+    print(f"computation #{len(combinations) -i}")
     i = i + 1
     mpmath_out_dict[str((q, k, v))] = str(cdf_mp(q, k, v))
     
