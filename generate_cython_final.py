@@ -35,5 +35,5 @@ for (q, k, v) in combinations[::-1]:
 
 import json
 
-with open("mpmath_res_final.txt", "w+") as f:
+with open("cython_res_final.txt", "w+") as f:
     f.write(json.dumps(cython_out_dict))
