@@ -32,7 +32,6 @@ for (q, k, v) in combinations[::-1]:
     cython_out_dict[str((q, k, v))] = str(stats.studentized_range.cdf(q, k, v))
     
 
-mp.dps = 25
 
 import json
 
